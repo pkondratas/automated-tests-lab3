@@ -15,8 +15,9 @@ namespace Lab3.Tests
             // var options = new ChromeOptions();
             // options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
-            // var service = ChromeDriverService.CreateDefaultService();
-            // service.Port = 50000;
+            var service = ChromeDriverService.CreateDefaultService();
+            service.Port = 50000;
+            service.HostName = "172.17.0.2";
 
             // Driver = new ChromeDriver(service, options);
             Driver = new ChromeDriver();
