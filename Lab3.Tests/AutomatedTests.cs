@@ -15,7 +15,10 @@ namespace Lab3.Tests
             var options = new ChromeOptions();
             options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
-            Driver = new ChromeDriver(options);
+            var service = ChromeDriverService.CreateDefaultService();
+            service.Port = 8000;
+
+            Driver = new ChromeDriver(service, options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
             await Driver.Navigate().GoToUrlAsync("https://demowebshop.tricentis.com/");
