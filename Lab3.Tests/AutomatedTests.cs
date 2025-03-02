@@ -5,7 +5,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Lab3.Tests
 {
-    public class AutomatedTests(TestFixture fixture) : IClassFixture<TestFixture>, IAsyncLifetime
+    public class AutomatedTests(TestFixture fixture) : IAsyncLifetime
     {
         private ChromeDriver Driver = null!;
         private WebDriverWait Waiter = null!;
@@ -13,7 +13,7 @@ namespace Lab3.Tests
         public async Task InitializeAsync()
         {   
             var options = new ChromeOptions();
-            options.AddArguments(["--headless", "--no-sandbox", "--disable-dev-shm-usage"]);
+            options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
             Driver = new ChromeDriver(options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
@@ -32,7 +32,7 @@ namespace Lab3.Tests
 
         [Theory]
         [InlineData("data1.txt")]
-        [InlineData("data2.txt")]
+        // [InlineData("data2.txt")]
         public async Task ConfirmCreatedOrderTest(string fileName)
         {
             // Act

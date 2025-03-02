@@ -27,7 +27,7 @@ namespace Lab3.Tests
         public async Task CreateUser()
         {
             var options = new ChromeOptions();
-            options.AddArguments(["--headless", "--no-sandbox", "--disable-dev-shm-usage"]);
+            options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
             var driver = new ChromeDriver(options);
             var waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
