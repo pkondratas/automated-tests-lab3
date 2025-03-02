@@ -16,7 +16,7 @@ namespace Lab3.Tests
             options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
             var service = ChromeDriverService.CreateDefaultService();
-            service.Port = 8000;
+            service.Port = 50000;
 
             Driver = new ChromeDriver(service, options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
