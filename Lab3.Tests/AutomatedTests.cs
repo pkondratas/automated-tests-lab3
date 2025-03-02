@@ -5,7 +5,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Lab3.Tests
 {
-    public class AutomatedTests(TestFixture fixture) : IAsyncLifetime
+    public class AutomatedTests : IAsyncLifetime
     {
         private ChromeDriver Driver = null!;
         private WebDriverWait Waiter = null!;
@@ -38,8 +38,8 @@ namespace Lab3.Tests
             // Act
             Driver.ClickByXPath("//a[@href = '/login']");
             
-            Driver.FillInFormField("Email", fixture.Email);
-            Driver.FillInFormField("Password", fixture.Password);
+            Driver.FillInFormField("Email", "");
+            Driver.FillInFormField("Password", "");
             
             Driver.ClickByXPath("//input[@value = 'Log in']");
             Driver.ClickByXPath("//div[@class = 'leftside-3']/descendant::a[@href='/digital-downloads']");
