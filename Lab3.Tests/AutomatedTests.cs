@@ -11,8 +11,11 @@ namespace Lab3.Tests
         private WebDriverWait Waiter = null!;
 
         public async Task InitializeAsync()
-        {
-            Driver = new ChromeDriver();
+        {   
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+
+            Driver = new ChromeDriver(options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
             await Driver.Navigate().GoToUrlAsync("https://demowebshop.tricentis.com/");

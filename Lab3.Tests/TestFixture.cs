@@ -26,7 +26,10 @@ namespace Lab3.Tests
 
         public async Task CreateUser()
         {
-            var driver = new ChromeDriver();
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+
+            var driver = new ChromeDriver(options);
             var waiter = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
 
             await driver.Navigate().GoToUrlAsync("https://demowebshop.tricentis.com/");

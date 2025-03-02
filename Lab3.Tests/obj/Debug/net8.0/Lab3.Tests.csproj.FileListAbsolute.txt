@@ -103,3 +103,4 @@ C:\Users\Paul James\Desktop\6semestras\Programu sistemu testavimas\Lab3\Lab3.Tes
 C:\Users\Paul James\Desktop\6semestras\Programu sistemu testavimas\Lab3\Lab3.Tests\obj\Debug\net8.0\Lab3.Tests.pdb
 C:\Users\Paul James\Desktop\6semestras\Programu sistemu testavimas\Lab3\Lab3.Tests\obj\Debug\net8.0\Lab3.Tests.genruntimeconfig.cache
 C:\Users\Paul James\Desktop\6semestras\Programu sistemu testavimas\Lab3\Lab3.Tests\obj\Debug\net8.0\ref\Lab3.Tests.dll
+C:\Users\Paul James\Desktop\6semestras\Programu sistemu testavimas\Lab3\Lab3.Tests\obj\Debug\net8.0\Lab3.Tests.sourcelink.json
