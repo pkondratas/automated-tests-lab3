@@ -18,7 +18,7 @@ namespace Lab3.Tests
             var service = ChromeDriverService.CreateDefaultService();
             service.Port = 50000;
             service.HostName = "172.17.0.3";
-            Console.WriteLine("aaaaaa")
+            Thread.Sleep(5000);
             Driver = new ChromeDriver(service, options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
