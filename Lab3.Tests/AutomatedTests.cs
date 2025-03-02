@@ -5,7 +5,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Lab3.Tests
 {
-    public class AutomatedTests : IAsyncLifetime
+    public class AutomatedTests(TestFixture fixture) : IClassFixture<TestFixture>, IAsyncLifetime
     {
         private ChromeDriver Driver = null!;
         private WebDriverWait Waiter = null!;
@@ -15,11 +15,7 @@ namespace Lab3.Tests
             var options = new ChromeOptions();
             options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
-            var service = ChromeDriverService.CreateDefaultService();
-            service.Port = 50000;
-            service.HostName = "192.17.6.3";
-            Thread.Sleep(5000);
-            Driver = new ChromeDriver(service, options);
+            Driver = new ChromeDriver(options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
             await Driver.Navigate().GoToUrlAsync("https://demowebshop.tricentis.com/");
@@ -36,14 +32,14 @@ namespace Lab3.Tests
 
         [Theory]
         [InlineData("data1.txt")]
-        // [InlineData("data2.txt")]
+        [InlineData("data2.txt")]
         public async Task ConfirmCreatedOrderTest(string fileName)
         {
             // Act
             Driver.ClickByXPath("//a[@href = '/login']");
             
-            Driver.FillInFormField("Email", "");
-            Driver.FillInFormField("Password", "");
+            Driver.FillInFormField("Email", fixture.Email);
+            Driver.FillInFormField("Password", fixture.Password);
             
             Driver.ClickByXPath("//input[@value = 'Log in']");
             Driver.ClickByXPath("//div[@class = 'leftside-3']/descendant::a[@href='/digital-downloads']");
