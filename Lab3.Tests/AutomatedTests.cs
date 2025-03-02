@@ -13,7 +13,7 @@ namespace Lab3.Tests
         public async Task InitializeAsync()
         {   
             var options = new ChromeOptions();
-            options.AddArgument("--headless");
+            options.AddArguments(["--headless", "--no-sandbox"]);
 
             Driver = new ChromeDriver(options);
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
