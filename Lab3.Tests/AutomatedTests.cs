@@ -25,7 +25,7 @@ namespace Lab3.Tests
 
         public Task DisposeAsync()
         {
-            Driver.Close();
+            Driver.Quit();
 
             return Task.CompletedTask;
         }

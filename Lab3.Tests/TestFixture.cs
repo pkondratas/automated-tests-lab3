@@ -54,7 +54,7 @@ namespace Lab3.Tests
 
             waiter.Until(d => d.ExecuteJavaScript<string>("return document.readyState")!.Equals("complete"));
 
-            driver.Close();   
+            driver.Quit();   
         }
 
         public void Dispose()
