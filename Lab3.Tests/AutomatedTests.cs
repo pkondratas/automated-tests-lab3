@@ -12,15 +12,15 @@ namespace Lab3.Tests
 
         public async Task InitializeAsync()
         {   
-            // var options = new ChromeOptions();
-            // options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
+            var options = new ChromeOptions();
+            options.AddArguments(["--headless=new", "--no-sandbox", "--disable-dev-shm-usage"]);
 
             var service = ChromeDriverService.CreateDefaultService();
             service.Port = 50000;
             service.HostName = "172.17.0.2";
 
-            // Driver = new ChromeDriver(service, options);
-            Driver = new ChromeDriver();
+            Driver = new ChromeDriver(service, options);
+            // Driver = new ChromeDriver();
             Waiter = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
 
             await Driver.Navigate().GoToUrlAsync("https://demowebshop.tricentis.com/");
